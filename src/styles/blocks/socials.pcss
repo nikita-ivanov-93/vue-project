@@ -1,0 +1,19 @@
+.socials {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .socials__item {
+        width: 32px;
+        height: 26px;
+        margin-right: 40px;
+        &:last-child {
+            margin-right: 0;
+        }
+        .social__icon {
+            fill: $text-color;
+            &:hover {
+                fill: $text-hover-color;
+            }
+        }
+    }
+  }
