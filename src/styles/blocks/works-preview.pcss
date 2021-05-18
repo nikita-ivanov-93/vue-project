@@ -1,0 +1,54 @@
+.works-preview {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  .works-preview__pics {
+    width: 65%;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      background: url('~images/decor/two.jpg') right bottom / contain no-repeat;
+      display: block;
+      bottom: 21%;
+      height: 54%;
+      width: 69%;
+      left: 48%;
+      z-index: -10;
+    }
+  }
+}
+
+.works-preview__thumbs {
+  z-index: 10;
+  position: absolute;
+  top: 27%;
+  right: 0%;
+  height: 100%; 
+  .works-preview__fullpic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.works-preview__info {
+  width: 24%;
+  .works-preview__title {
+    font-size: 30px;
+    margin-bottom: 42px;
+    font-weight: bold;
+  }
+  
+  .works-preview__desc {
+    font-weight: 600;
+    color: rgba($text-color, .7);
+    line-height: 1.8;
+    margin-bottom: 38px;
+  }
+  .works-slider__link {
+    display: block;
+  }
+}
+
+
