@@ -6,15 +6,16 @@
     width: 65%;
     position: relative;
     &:before {
-      content: "";
+      content: attr(data-slide);
       position: absolute;
-      background: url('~images/decor/two.jpg') right bottom / contain no-repeat;
-      display: block;
-      bottom: 21%;
-      height: 54%;
-      width: 69%;
-      left: 48%;
-      z-index: -10;
+      top: 50%;
+      transform: translateY(-60%);
+      line-height: 1;
+      left: 100%;
+      font-size: 400px;
+      font-weight: 800;
+      margin-left: -8%;
+      color: rgba($text-color, .05);
     }
   }
 }
