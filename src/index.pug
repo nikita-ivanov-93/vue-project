@@ -16,7 +16,7 @@ block content
           ul.socials
             each item in socials
               li.socials__item
-                a(href="#").socials__link
+                a(href="#", target="_blank").socials__link
                   +icon(item, 'social__icon')
         .userinfo
           .userinfo__title Личный сайт #[br] веб-разработчика
@@ -90,7 +90,7 @@ block content
               .works-preview__title Сайт школы образования
               .works-preview__desc
                 p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-              a(href="#").iconed-link Посмотреть сайт
+              a(href="#", target="_blank").iconed-link Посмотреть сайт
   .triangles.triangles--bottom
     svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__shape.triangles__shape--left
       polygon(points="0,0 1000,0 1000,100")
@@ -139,7 +139,7 @@ block content
               ul.socials.socials--round--borders
                 each item in socials
                   li.socials__item
-                    a(href="#").socials__link
+                    a(href="#", target="_blank").socials__link
                       +icon(item, 'socials__icon')
           .footer__data-col
             .text-quote
