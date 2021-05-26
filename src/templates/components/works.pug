@@ -1,15 +1,14 @@
 script(type="text/x-template")#works-container         
-  .works-preview
-    worksCurrent
+  worksCurrent
 
 script(type="text/x-template")#works-current
-  .works-preview__pics(data-slide='1')
-    +image('content/slider-1.jpg', 'works-preview__fullpic')
-    .works-preview__thumbs
-      worksThumbs
-    .works-preview__btns
-      worksBtns
-  .works-preview__info
+  .works-preview
+    .works-preview__pics(data-slide='1')
+      +image('content/slider-1.jpg', 'works-preview__fullpic')
+      .works-preview__thumbs
+        worksThumbs
+      .works-preview__btns
+        worksBtns
     worksInfo
 
 script(type="text/x-template")#works-thumbs
@@ -25,11 +24,12 @@ script(type="text/x-template")#works-btns
     a(href="#").square-btns__btn.square-btns__btn--prev
 
 script(type="text/x-template")#works-info
-  worksTags
-  .works-preview__title Сайт школы образования
-  .works-preview__desc
-    p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-  a(href="#", target="_blank").iconed-link Посмотреть сайт
+  .works-preview__info  
+    worksTags
+    .works-preview__title Сайт школы образования
+    .works-preview__desc
+      p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+    a(href="#", target="_blank").iconed-link Посмотреть сайт
 
 script(type="text/x-template")#works-tags
   - var tags = ['HTML', 'CSS', 'JavaScript'];
