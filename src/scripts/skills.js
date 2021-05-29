@@ -8,7 +8,7 @@ const skillsItem = {
     ],
     template: "#skills-item",
     methods: {
-        perecntCircle() {
+        percentCircle() {
             const circle = this.$refs["colored-circle"];
             const dashArray = parseInt(
                 getComputedStyle(circle).getPropertyValue("stroke-dasharray")
@@ -18,7 +18,7 @@ const skillsItem = {
         }
     },
     mounted() {
-        this.perecntCircle
+        this.percentCircle()
     }
 };
 
