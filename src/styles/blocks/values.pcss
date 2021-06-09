@@ -3,40 +3,99 @@
 }
 .values__wrapper {
     padding-left: 34%;
+    @include desktop {
+        padding-left: 27%;
+    }
+    @include tablets {
+        padding-left: 0%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
 }
 .values__container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    padding: 142px 160px;
+    padding: 8% 10%;
+    @include desktop {
+        padding: 11% 0%;
+    }
     &:before {
         content: "";
         position: absolute;
         background: url('~images/bg/bag.png') left bottom / contain no-repeat;
         display: block;
-        bottom: 15%;
+        bottom: 18%;
         height: 82%;
         width: 40%;
-        left: 1%;
+        left: 0%;
+        @include desktop {
+            bottom: 18%;
+            width: 62%;
+            left: -21%;
+        }
+        @include tablets {
+            bottom: -25%;
+            width: 39%;
+            left: 30%;
+        }
+        @include phones {
+            bottom: -22%;
+            width: 100%;
+            left: 2%;
+        }
     }
 }
 .values__skills {
-    padding-left: 122px;
+    padding-left: 14%;
+    @include desktop {
+        padding-left: 10%;
+    }
+    @include tablets {
+        padding-left: 0%;
+    }
 }
 .values__title {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 182px;
-    margin-bottom: 84px;
+    min-height: 174px;
+    margin-bottom: 12%;
     padding-right: 39%;
+    @include desktop {
+        padding-right: 30%;
+    }
+    @include tablets {
+        padding-right: 0%;
+        text-align: center;
+        width: 66%;
+        min-height: 210px;
+        margin-bottom: 6%;
+    }
+    @include phones {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 15%;
+    }
     .values__title-text {
         font-weight: 700;
         font-size: 30px;
+        @include tablets {
+            padding: 0% 13%;
+        }
+        @include phones {
+            padding: 0%;
+            margin-bottom: 9%;
+        }
     }
     .values__desc {
         font-weight: 600;
-        line-height: 1.7;
+        line-height: 1.9;
+        @include phones {
+            line-height: 1.8;
+        }
     }
 }

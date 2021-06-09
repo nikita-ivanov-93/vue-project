@@ -8,10 +8,12 @@ new Vue({
     return {
       reviews: [],
       sliderOptions: {
-        slidesPerView: 2,
+        slidesPerView: document.getElementById('reviews').offsetWidth <= 320 ? 1 :2,
         loop: false
-      }
+      },
     }
+  },
+  computed: {
   },
   components: {
     Swiper, SwiperSlide

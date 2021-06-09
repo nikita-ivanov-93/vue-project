@@ -1,19 +1,21 @@
 .thumbs {
-    width: 178px;
 }
 .active {
     outline: 3px solid #f29400;
 }
 
-.thumb__link {
+.thumbs__item {
+    max-height: 106px;
+}
+
+.thumbs__link {
     display: block;
     height: 100%;
 }
 
 .thumbs__pic {
     width: 100%;
-    height: 100px;
-    object-fit: cover;
+    object-fit: contain;
     &:hover {
         transition: .5s;
         outline: 3px solid #f29400;

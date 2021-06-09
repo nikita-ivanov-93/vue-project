@@ -1,15 +1,26 @@
 .menu {
   display: flex;
-  margin-right: 150px;
+  margin-right: 16%;
   flex: 1;
+  &--header {
+    @include tablets {
+      display: none;
+    }
+  }
   .menu__list {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
     .menu__item {
-      width: 13%;
+      width: 16%;
       text-align: center;
+      @include desktop {
+        width: 24%;
+      }
+      @include tablets {
+        width: 25%;
+      }
       &:last-child {
         margin-right: 0;
       }
@@ -27,15 +38,47 @@
   }
   &--color--white {
     margin-bottom: 46px;
+    @include tablets {
+      margin-right: 0;
+    }
+    @include phones {
+      margin-bottom: 13%;
+    }
     .menu__list {
       justify-content: flex-start;
       .menu__item {
         width: 15%;
         text-align: start;
+        @include desktop {
+          width: 19%;
+        }
+        @include tablets {
+          width: 25%;
+        }
+        @include phones {
+          width: 50%;
+          margin-bottom: 6%;
+        }
         .menu__link {
           color: white;
         }
       }
     }
   }
+  &--overlay {
+    display: flex;
+    flex: 0;
+    width: 100%;
+    font-size: 18px;
+    margin-bottom: 20%;
+    .menu__list {
+      flex-direction: column;
+      .menu__item {
+        width: 35%;
+        text-align: left;
+        margin-bottom: 5%;
+      }
+    }
+  }
 }
+

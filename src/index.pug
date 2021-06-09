@@ -6,18 +6,23 @@ block content
       .container.hero__container
         header.header
           a(href="#").logo ВА
-          nav.menu
-            - let menuItems = ['Обо мне','Навыки','Работы','Отзывы']
-            ul.menu__list
-              each item in menuItems
-                li.menu__item
-                  a(href='#').menu__link #{item}
-          - let socials = ['insta', 'github', 'vk', 'envelope']
-          ul.socials
-            each item in socials
-              li.socials__item
-                a(href="#", target="_blank").socials__link
-                  +icon(item, 'social__icon')
+          .header__modal#modal
+            nav.menu.menu--header#menu
+              - let menuItems = ['Обо мне','Навыки','Работы','Отзывы']
+              ul.menu__list
+                each item in menuItems
+                  li.menu__item
+                    a(href='#').menu__link #{item}
+            - let socials = ['insta', 'github', 'vk', 'envelope']
+            ul.socials.socials--header#socials
+              each item in socials
+                li.socials__item
+                  a(href="#", target="_blank").socials__link
+                    +icon(item, 'social__icon')
+            .hamburger#hamburger
+                span.hamburger__plank.hamburger__plank--1
+                span.hamburger__plank.hamburger__plank--2
+                span.hamburger__plank.hamburger__plank--3
         .userinfo
           .userinfo__title Личный сайт #[br] веб-разработчика
           .userinfo__name Владимир Астаханов
@@ -74,13 +79,14 @@ block content
       polygon(points="0,0 1000,0 1000,100")
     svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__shape.triangles__shape--right
       polygon(points="0,0 0,100 1000,0")
-  section.reviews
+  .footer
+  section.reviews#reviews
     .container.reviews__container
       #slider-component
   footer.footer
     .container.footer__container
       .footer__info
-        .footer__year &copy;2020
+        .footer__year &copy; 2020
         .footer__userinfo
           .footer__name Владимир Астаханов
           .footer__text Личный сайт веб - разработчика

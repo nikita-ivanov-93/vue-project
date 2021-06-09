@@ -1,8 +1,11 @@
 .square-btns {
-    position: absolute;
-    right: 0;
-    display: flex;
+  position: absolute;
+  right: 0;
+  display: flex;
+  @include phones {
+    bottom: 0;
   }
+}
   
   .square-btns__btn {
     width: 50px;
@@ -10,6 +13,14 @@
     background: #2d3c4e;
     display: block;
     position: relative;
+    @include desktop {
+      width: 38px;
+      height: 38px;
+    }
+    @include phones {
+      width: 55px;
+      height: 55px;
+    }
     &:before {
       content: "";
       background: svg-load('arrow-down.svg', fill=#fff, width=100%, height=100%) center center no-repeat;

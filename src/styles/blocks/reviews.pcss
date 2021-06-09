@@ -1,9 +1,17 @@
 .reviews {
-    height: 100vh;
-    padding: 226px 0;
-    background: url('~images/bg/budda.jpg') center bottom / cover no-repeat;
+    padding: 213px 0;
+    background: url('~images/bg/budda.jpg') 50% 23% / 133% 187% no-repeat;
+    @include desktop {
+        background: url('~images/bg/budda.jpg') 46% 25% /202% 202% no-repeat;
+    }
+    @include tablets {
+        background: url('~images/bg/budda.jpg') 40% 24% /217% 156% no-repeat;
+    }
+    
     .reviews__container {
-        height: 100vh;
-        padding: 0 160px 0 160px;
+        padding: 0 4% 0;
+        @include desktop {
+            padding: 0%;
+        }
     }
 }
