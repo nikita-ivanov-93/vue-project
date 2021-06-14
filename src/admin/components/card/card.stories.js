@@ -47,15 +47,3 @@ export const simpleView = () => ({
 simpleView.story = {
   name: "Упрощенный вид"
 }
-export const slimView = () => ({
-  components: { card },
-  template: `
-    <card slim>
-      <h1>Содержимое</h1>
-    </card>
-  `,
-});
-
-slimView.story = {
-  name: "С маленькими отступами"
-}

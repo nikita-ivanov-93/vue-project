@@ -1,26 +1,40 @@
 .slider__header {
     display: flex;
     align-items: center;
-    margin-bottom: 78px;
+    margin-bottom: 7%;
+    @include phones {
+        flex-direction: column;
+        margin-bottom: 21%;
+    }
     .slider__title.section-title {
         margin-bottom: 0;
-        margin-right: 8%;
+        margin-right: 7%;
+        padding-left: 3%;
+        @include desktop {
+            margin-right: 13%;
+        }
+        @include tablets {
+            margin-right: 3%;
+        }
+        @include phones {
+            font-size: 24px;
+            margin-bottom: 12%;
+        }
         .slider__buttons {
-        display: flex;
+            display: flex;
         }
     }
 }
-.slider__list {
-    overflow: hidden;
-    display: flex;
-    width: 74%;
-    .slider__item {
-        flex-shrink: 0;
-        width: 40%;
-        margin-right: 66px;
-        &:last-child {
-        margin-right: 0;
-        }
+
+.slider__swiper {
+    width: 65%;
+    @include desktop {
+        width: 89%;
+        
+    }
+    @include tablets {
+        width: 100%;
+        
     }
 }
   

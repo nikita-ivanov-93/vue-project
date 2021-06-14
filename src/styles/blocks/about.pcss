@@ -1,8 +1,18 @@
 .about__container {
     display: flex;
-    padding: 160px 400px 270px;
+    padding: 10% 14%;
+    @include desktop {
+        padding: 10% 0%;
+    }
+    @include phones {
+        flex-direction: column;
+    }
     .about__user {
         width: 36%;
+        @include phones {
+            width: 100%;
+            margin-bottom: 11%;
+        }
     }
     .about__content {
         display: flex;
@@ -10,21 +20,38 @@
         justify-content: space-between;
         flex: 1;
         padding: 0 0 40px 80px;
+        @include desktop {
+            padding: 0 6% 3% 7%;
+        }
+        @include tablets {
+            padding: 0 0% 0% 13%;
+        }
+        @include phones {
+            padding: 0;
+        }
         .about__desc {
             font-weight: 600;
             opacity: 0.8;
-            margin-bottom: 26px;
+            @include tablets {
+                margin-bottom: 2%;
+            }
         }
         .about__title {
             font-weight: 700;
             font-size: 36px;    
             margin-bottom: 34px;
+            @include phones {
+                line-height: 1.2;
+            }
         }
         .about__text {
             font-weight: 600;
             opacity: 0.8;
             flex: 1;
             line-height: 1.7;
+            @include phones {
+                margin-bottom: 14%;
+            }
         }
         .about__ps {
             font-style: italic;

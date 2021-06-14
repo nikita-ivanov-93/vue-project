@@ -2,25 +2,44 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  @include tablets {
+    flex-direction: column;
+    align-items: center;
+  }
   .works-preview__pics {
-    width: 66%;
+    width: 65%;
     position: relative;
+    @include desktop {
+      width: 59%;
+    }
+    @include tablets {
+      width: 100%;
+      margin-bottom: 8%;
+    }
+    @include phones {
+      margin-bottom: 18%;
+    }
     .works-preview__fullpic {
-      height: 554px;
-      width: 974px;
+      width: 100%;
+      height: 100%;
+      max-height: 550px;
       object-fit: cover;
+      
     }
     &:before {
       content: attr(data-slide);
       position: absolute;
-      top: 50%;
+      top: 48%;
       transform: translateY(-60%);
       line-height: 1;
-      left: 100%;
+      left: 90%;
       font-size: 400px;
       font-weight: 800;
-      margin-left: -8%;
       color: rgba($text-color, .05);
+      @include desktop {
+        top: 57%;
+        font-size: 320px;
+      }
     }
   }
 }
@@ -28,26 +47,57 @@
 .works-preview__thumbs {
   z-index: 10;
   position: absolute;
-  top: 27%;
+  bottom: 0%;
   right: 0%;
+  width: 18%;
+  @include phones {
+    display: none;
+  }
 }
 
 .works-preview__info {
   width: 24%;
-  padding-left: 10px;
   display: flex;
   flex-direction: column;
+  @include desktop {
+    width: 29%;
+  }
+  @include tablets {
+    width: 71%;
+    align-items: center;
+    text-align: center;
+  }
+  @include phones {
+    width: 86%;
+    text-align: left;
+    align-items: flex-start;
+  }
   .works-preview__title {
     font-size: 30px;
-    margin-bottom: 32px;
+    margin-bottom: 9%;
     font-weight: bold;
+    @include desktop {
+      margin-bottom: 13%;
+    }
+    @include tablets {
+      margin-bottom: 2%;
+    }
+    @include phones {
+      font-size: 24px;
+    }
   }
   
   .works-preview__desc {
     font-weight: 600;
     color: rgba($text-color, .7);
     line-height: 1.8;
-    margin-bottom: 49px;
+    margin-bottom: 14%;
+    @include desktop {
+      line-height: 2;
+    }
+    @include tablets {
+      margin-bottom: 6%;
+    }
   }
   .works-slider__link {
     display: block;

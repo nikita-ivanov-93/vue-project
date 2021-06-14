@@ -53,18 +53,4 @@ export default {
 }
 </script>
 
-<style lang="postcss">
-  .item {
-    margin-bottom: 30px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  .bottom-line {
-    padding-top: 70px;
-    margin-top: auto;
-    padding-left: 25%;
-  }
-</style>
+<style lang="postcss" scoped src="./category.pcss"></style>

@@ -52,13 +52,18 @@
       },
       {
         "id": 1,
-        "title": "Docker",
+        "title": "Webpack",
         "percent": 20
       },
       {
         "id": 2,
-        "title": "Bash",
+        "title": "Gulp",
         "percent": 50
+      },
+      {
+        "id": 2,
+        "title": "Bash",
+        "percent": 30
       }
     ]
   }

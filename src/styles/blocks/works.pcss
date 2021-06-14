@@ -1,14 +1,26 @@
 .works__container {
     display: flex;
     flex-direction: column;
-    min-height: 734px;
-    padding: 27px 160px 0;
+    min-height: 570px;
+    padding: 2% 6% 0;
+    @include desktop {
+        padding: 2% 2% 0;
+    }
+    @include tablets {
+        padding: 2% 8% 0 2%
+    }
+    @include phones {
+        padding: 0%;
+        width: 100%;
+    }
     .works__section-title {
-        margin-bottom: 78px;
+        margin-bottom: 80px;
+        @include desktop {
+            margin-bottom: 8%;
+        }
+        @include phones {
+            font-size: 24px;
+            text-align: center;
+        }
     }
 }
-/* 
-.works__content {
-    display: flex;
-    justify-content: space-between;
-} */

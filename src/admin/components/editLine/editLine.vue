@@ -11,7 +11,7 @@
         <app-input
           placeholder="Название новой группы"
           :value="value"
-          :errorText="errorText"
+          :errorMessage="validText"
           @input="$emit('input', $event)"
           @keydown.native.enter="onApprove"
           autofocus="autofocus"
@@ -35,35 +35,37 @@ export default {
   props: {
     value: {
       type: String,
-      default: "",
+      default: ""
     },
     errorText: {
       type: String,
-      default: "",
+      default: ""
     },
-    editModeByDefault: Boolean,
     blocked: Boolean,
+    editModeByDefault: Boolean,
   },
   data() {
     return {
       editmode: this.editModeByDefault,
       title: this.value,
+      validText: this.errorText
     };
   },
   methods: {
     onApprove() {
-      if (this.title.trim() === "") return false;
-      if (this.title.trim() === this.value.trim()) {
-        this.editmode = false;
+      if (this.value === "") {
+        this.validText = "Заполните поле";
       } else {
         this.$emit("approve", this.value);
+        this.editmode = false;
       }
-    },
+    }
   },
   components: {
     icon: () => import("components/icon"),
     appInput: () => import("components/input"),
-  },
+
+  }
 };
 </script>
 

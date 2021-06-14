@@ -13,7 +13,7 @@ export default {
 export const defaultView = () => ({
   components: { roundBtn },
   template: `
-    <round-btn type="round" @click="onClick" />
+    <round-btn type="iconed" @click="onClick" />
   `,
   methods
 });

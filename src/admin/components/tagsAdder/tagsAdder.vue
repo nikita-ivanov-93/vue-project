@@ -66,13 +66,4 @@ export default {
 };
 </script>
 
-<style lang="postcss" scoped>
-  .tags {
-    display: flex;
-    margin-top: 20px;
-  }
-
-  .tag {
-    margin-right: 10px;
-  }
-</style>
+<style lang="postcss" scoped src="./tagsAdder.pcss"></style>

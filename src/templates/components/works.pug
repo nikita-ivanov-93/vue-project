@@ -1,39 +1,36 @@
 script(type="text/x-template")#works-container         
-  worksCurrent
+  worksCurrent(@slide="slide" :currentWork="currentWork", :works="works" :currentIndex="currentIndex")
 
 script(type="text/x-template")#works-current
   .works-preview
-    .works-preview__pics(data-slide='1')
-      +image('content/slider-1.jpg', 'works-preview__fullpic')
+    .works-preview__pics(:data-slide="currentIndex+1")
+      img(:src="currentWork.photo").works-preview__fullpic
       .works-preview__thumbs
-        worksThumbs
+        worksThumbs(:currentWork="currentWork", :works="reverseWorks")
       .works-preview__btns
-        worksBtns
-    worksInfo
+        worksBtns(@slide="$emit('slide', $event)")
+    worksInfo(:currentWork="currentWork")
 
 script(type="text/x-template")#works-thumbs
   ul.thumbs
-    - for (var i = 4; i > 0; i--)
-      li.thumbs__item(class=`${i === 1 ? 'thumbs__item--active' : ''}`)
-        a(href="#").thumbs__link
-          +image(`content/slider-${i}.jpg`, 'thumbs__pic')
+    li.thumbs__item(v-for="slide in works" :key="slide.id" :class="{active: slide.id === currentWork.id}")
+      a(href="#").thumbs__link
+        img(:src="slide.photo").thumbs__pic
 
 script(type="text/x-template")#works-btns 
   .square-btns
-    a(href="#").square-btns__btn.square-btns__btn--next
-    a(href="#").square-btns__btn.square-btns__btn--prev
+    a(href="#" @click.prevent="$emit('slide', 'next')").square-btns__btn.square-btns__btn--next
+    a(href="#" @click.prevent="$emit('slide', 'prev')").square-btns__btn.square-btns__btn--prev
 
 script(type="text/x-template")#works-info
   .works-preview__info  
-    worksTags
-    .works-preview__title Сайт школы образования
+    worksTags(:currentWork="currentWork")
+    .works-preview__title {{currentWork.title}}
     .works-preview__desc
-      p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-    a(href="#", target="_blank").iconed-link Посмотреть сайт
+      p {{currentWork.desc}}
+    a(:href="currentWork.link", target="_blank").iconed-link Посмотреть сайт
 
 script(type="text/x-template")#works-tags
-  - var tags = ['HTML', 'CSS', 'JavaScript'];
   ul.tags
-    each item in tags
-      li.tags__item 
-        .tag #{item}
+    li.tags__item(v-for="tag in currentWork.skills.split(', ')") 
+      .tag {{tag}}
