@@ -9,9 +9,9 @@
       <li class="tag"
         v-for="(tag, index) in tagsArray"
         :key="`${tag}${index}`"
-        v-if="tag.trim()"
       >
         <tag
+          v-if="tag.trim()"
           interactive 
           :title="tag"
           @click="removeTag(tag)"
