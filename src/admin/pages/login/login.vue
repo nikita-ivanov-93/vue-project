@@ -50,8 +50,8 @@ export default {
   }),
   methods: {
     async handlesubmit() {
-      this.$validate().then(async (isValid) => {
-        if (isValid === false) return;
+      if((await this.$validate()) === false) return; 
+        
         this.isSubmitDisabled = true;
         try {
           const response = await $axios.post("/login", this.user);
@@ -63,11 +63,9 @@ export default {
           finally {
           this.isSubmitDisabled = false;
         }
-        
-      })
     }
   }
-};
+}
 
 </script>
 

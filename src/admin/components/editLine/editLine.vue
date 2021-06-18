@@ -53,11 +53,11 @@ export default {
   },
   methods: {
     onApprove() {
-      if (this.value === "") {
-        this.validText = "Заполните поле";
+      if (this.value.trim() === "") return false;
+      if (this.title.trim() === this.value.trim()) {
+        this.editmode = false;
       } else {
         this.$emit("approve", this.value);
-        this.editmode = false;
       }
     }
   },

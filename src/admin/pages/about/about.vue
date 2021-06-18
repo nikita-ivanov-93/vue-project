@@ -11,7 +11,9 @@
           )
         ul.skills
           li.item(v-if="emptyCatIsShown")
-            category(@remove="emptyCatIsShown = false"
+            category(
+              @remove="emptyCatIsShown = false"
+              @approve="createCategory" 
               empty 
             )
           li.item(
@@ -27,6 +29,7 @@
 <script>
 import button from "../../components/button";
 import category from "../../components/category";
+import {mapActions, mapState} from 'vuex';
 
 export default {
   components: {
@@ -35,12 +38,30 @@ export default {
   },
   data() {
     return {
-      categories: [],
       emptyCatIsShown: false
     }
   },
+  computed: {
+    ...mapState("categories", {
+      categories: state => state.data
+    })
+  },
+  methods: {
+    ...mapActions({
+      createCategoriesAction: "categories/create",
+      fetchCategoriesAction: "categories/fetch"
+    }),
+    async createCategory(categoryTitle) {
+      try {
+        await this.createCategoriesAction(categoryTitle);
+        this.emptyCatIsShown = false;
+      } catch(error) {
+        console.log(error.message)
+      }
+    }
+  },
   created() {
-    this.categories = require("../../data/categories.json");
+    this.fetchCategoriesAction();
   }
 };
 </script>
