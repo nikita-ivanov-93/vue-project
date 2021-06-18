@@ -1,6 +1,8 @@
 import Vue from "vue"
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
-import "swiper/swiper-bundle.css"
+import "swiper/swiper-bundle.css";
+
+
 new Vue({
   el: "#slider-component",
   template: "#slider-container",
