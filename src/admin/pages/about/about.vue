@@ -9,6 +9,7 @@
             @click  ="emptyCatIsShown = true" 
             title="Добавить группу"
           )
+        pre {{categories}}
         ul.skills
           li.item(v-if="emptyCatIsShown")
             category(
@@ -23,7 +24,8 @@
             category( 
               :title="category.category"
               :skills="category.skills"
-              @remove="removeCategory"
+              
+              @remove="deleteCategory(category.id)"
               @create-skill="createSkill($event, category.id)"
               @edit-skill="editSkill($event, category.id)"
               @remove-skill="removeSkill"
@@ -76,9 +78,9 @@ export default {
       await this.editSkillAction(skill)
       skill.editmode = false;
     },
-    removeCategory(categoryToRemove) {
-      console.log(categoryToRemove)
-      this.removeCategory(categoryToRemove)
+    deleteCategory(categoryId) {
+      console.log(categoryId)
+      this.removeCategory(categoryId);
     },
     async createCategory(categoryTitle) {
       try {

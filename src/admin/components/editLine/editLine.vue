@@ -11,7 +11,7 @@
         <app-input
           placeholder="Название новой группы"
           :value="value"
-          :errorMessage="validText"
+          :errorMessage="errorText"
           @input="$emit('input', $event)"
           @keydown.native.enter="onApprove"
           autofocus="autofocus"
@@ -23,7 +23,7 @@
           <icon symbol="tick" @click="onApprove"></icon>
         </div>
         <div class="button-icon">
-          <icon symbol="cross" @click="$emit('remove',title)"></icon>
+          <icon symbol="cross" @click="$emit('remove')" ></icon>
         </div>
       </div>
     </div>
@@ -31,7 +31,16 @@
 </template>
 
 <script>
+import {Validator, mixin as ValidatorMixin} from 'simple-vue-validator';
+
+
 export default {
+  mixin: [ValidatorMixin],
+  validators: {
+    "title": value => {
+      return Validator.value(value).required("Fill the field!");
+    },
+  },
   props: {
     value: {
       type: String,
@@ -48,18 +57,20 @@ export default {
     return {
       editmode: this.editModeByDefault,
       title: this.value,
-      validText: this.errorText
     };
   },
   methods: {
     onApprove() {
-      if (this.value.trim() === "") return false;
+      if (this.value.trim() === "") {
+        this.errorText= "fill the field!"
+        return false
+      };
       if (this.title.trim() === this.value.trim()) {
         this.editmode = false;
       } else {
         this.$emit("approve", this.value);
       }
-    }
+    },
   },
   components: {
     icon: () => import("components/icon"),
