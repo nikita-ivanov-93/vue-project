@@ -4,7 +4,7 @@
       .container
         .header
           .title Блок "Обо мне"
-          iconed-button(type="iconed" 
+          iconedButton(type="iconed" 
             v-if="emptyCatIsShown === false"
             @click  ="emptyCatIsShown = true" 
             title="Добавить группу"
