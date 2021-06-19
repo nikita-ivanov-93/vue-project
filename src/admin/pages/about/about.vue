@@ -24,7 +24,7 @@
             category( 
               :title="category.category"
               :skills="category.skills"
-              
+              @approve="editCategory($event, category.id)" 
               @remove="deleteCategory(category.id)"
               @create-skill="createSkill($event, category.id)"
               @edit-skill="editSkill($event, category.id)"
@@ -60,6 +60,7 @@ export default {
       editSkillAction: "skills/edit",
       removeSkillAction: "skills/remove",
       removeCategory: "categories/remove",
+      editCategoryAction: "categories/edit"
     }),
     async createSkill(skill, categoryId) {
       const newSkill = {
@@ -79,12 +80,19 @@ export default {
       skill.editmode = false;
     },
     deleteCategory(categoryId) {
-      console.log(categoryId)
       this.removeCategory(categoryId);
+    },
+    async editCategory(categoryToEdit, categoryId) {
+      const newCategoryName = {
+        title: categoryToEdit.title,
+        category: categoryId
+      };
+      await this.editCategoryAction(newCategoryName)
+      categoryToEdit.editmode = false;
     },
     async createCategory(categoryTitle) {
       try {
-        await this.createCategoriesAction(categoryTitle);
+        await this.createCategoriesAction(categoryTitle.title);
         this.emptyCatIsShown = false;
       } catch(error) {
         console.log(error.message)

@@ -40,21 +40,12 @@ export default {
       state.data = state.data.map(findCategory);
     },
     EDIT_CATEGORY: (state, categoryToEdit) => {
-      const editSkill = category => {
-        category.skills = category.skills.map(skill => {
-          if (skill.id === skillToEdit.id) {
-            skill = skillToEdit;
-          }
-          return skill;
-        })  
-      }
-      const findCategory = category => {
-        if (category.id === skillToEdit.category) {
-          editSkill(category);
-        };
+      state.data = state.data.map(category => {
+        if (category.category === categoryToEdit.category) {
+          category.title = categoryToEdit.title;
+        }
         return category;
-      }
-      state.data = state.data.map(findCategory);
+      })
     },
     REMOVE_CATEGORY: (state, categoryIdToRemove) => {
       state.data = state.data.filter(category => category.id !== categoryIdToRemove);
@@ -84,6 +75,15 @@ export default {
         commit("REMOVE_CATEGORY", categoryId)
       } catch (error) {
         console.log(error);
+      }
+    },
+    async edit({commit}, categoryToEdit) {
+      try {
+        const response = await this.$axios.post(`/categories/${categoryToEdit.category}`, categoryToEdit.title);
+        commit("EDIT_CATEGORY", categoryToEdit)
+      } catch (error) {
+        console.log(error);
+        throw new Error("Ошибка")
       }
     }
   }

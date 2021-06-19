@@ -1,9 +1,9 @@
 <template>
   <div class="edit-line-component" :class="{'blocked' : blocked}">
-    <div class="title" v-if="editmode === false">
+    <div class="title" v-if="currentCategory.editmode === false">
       <div class="text">{{value}}</div>
       <div class="icon">
-        <icon symbol="pencil" grayscale @click="editmode = true"></icon>
+        <icon symbol="pencil" grayscale @click="currentCategory.editmode = true"></icon>
       </div>
     </div>
     <div v-else class="title">
@@ -55,8 +55,10 @@ export default {
   },
   data() {
     return {
-      editmode: this.editModeByDefault,
-      title: this.value,
+      currentCategory: {
+        editmode: this.editModeByDefault,
+        title: this.value,
+      }
     };
   },
   methods: {
@@ -65,10 +67,11 @@ export default {
         this.errorText= "fill the field!"
         return false
       };
-      if (this.title.trim() === this.value.trim()) {
-        this.editmode = false;
+      if (this.currentCategory.title.trim() === this.value.trim()) {
+        this.currentCategory.editmode = false;
       } else {
-        this.$emit("approve", this.value);
+        this.currentCategory.title = this.value;
+        this.$emit("approve", this.currentCategory);
       }
     },
   },
