@@ -9,7 +9,6 @@
             @click  ="emptyCatIsShown = true" 
             title="Добавить группу"
           )
-        pre {{categories}}
         ul.skills
           li.item(v-if="emptyCatIsShown")
             category(
