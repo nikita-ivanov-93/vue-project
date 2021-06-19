@@ -23,7 +23,7 @@
           <icon symbol="tick" @click="onApprove"></icon>
         </div>
         <div class="button-icon">
-          <icon symbol="cross" @click="$emit('remove')"></icon>
+          <icon symbol="cross" @click="$emit('remove',title)"></icon>
         </div>
       </div>
     </div>
