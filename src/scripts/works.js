@@ -1,4 +1,7 @@
 import Vue from "vue";
+import axios from "axios";
+
+axios.defaults.baseURL = "https://webdev-api.loftschool.com";
 
 const worksTags = {
     props: [
@@ -93,9 +96,7 @@ new Vue ({
         requireImages(data) {
             return(
                 data.map(item => {
-                    const requireImage = require(`../images/content/${item.photo}`).default;
-                    item.photo = requireImage;
-                    return item
+                    return item.photo
                 })
             )
         },
@@ -121,8 +122,8 @@ new Vue ({
         }
         
     },
-    created() {
-        const data = require("../data/works.json");
-        this.works = this.requireImages(data);
+    async created() {
+        const {data} = await axios.get("/works/464")
+        this.works = data;
     },
 });

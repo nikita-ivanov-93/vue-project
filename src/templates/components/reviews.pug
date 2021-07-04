@@ -15,7 +15,7 @@ script(type="text/x-template")#slider-container
               .user-display
                 .user-display__avatar
                   .user-display__avatar-wrapper
-                    img(:src="review.pic").user-display__avatar-pic
+                    img(:src="`https://webdev-api.loftschool.com/${review.photo}`").user-display__avatar-pic
                 .user-display__data
-                  .user-display__name {{review.name}}
+                  .user-display__name {{review.author}}
                   .user-display__occ {{review.occ}}

@@ -8,6 +8,7 @@ Vue.use(VueRouter);
 import about from "./pages/about";
 import login from "./pages/login";
 import works from "./pages/works";
+import reviews from "./pages/reviews";
 import header from "./components/header";
 
 const routes = [
@@ -29,6 +30,13 @@ const routes = [
     path: "/works",
     components: {
       default: works,
+      header: header
+    }
+  },
+  {
+    path: "/reviews",
+    components: {
+      default: reviews,
       header: header
     }
   },

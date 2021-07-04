@@ -27,6 +27,7 @@ import appInput from "../../components/input";
 import button from '../../components/button';
 import { Validator, mixin as ValidatorMixin } from "simple-vue-validator";
 import $axios from '../../request';
+import { mapActions } from "vuex";
 export default {
   mixins: [ValidatorMixin],
   validators: {
@@ -49,6 +50,10 @@ export default {
     isSubmitDisabled: false,
   }),
   methods: {
+    ...mapActions({
+      showTooltip: "tooltips/show",
+      login: "user/login"
+    }),
     async handlesubmit() {
       if((await this.$validate()) === false) return; 
         
@@ -58,6 +63,8 @@ export default {
           const token = response.data.token;
           localStorage.setItem("token", token);
           $axios.defaults.headers["Authorization"] = `Bearer ${token}`;
+          const userResponse = await $axios.get("/user");
+          this.login(userResponse.data.user);
           this.$router.replace('/');
         } catch (error) {console.log(error.response.data.error)}
           finally {

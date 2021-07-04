@@ -14,7 +14,7 @@
             category(
               @remove="emptyCatIsShown = false"
               @approve="createCategory" 
-              empty 
+              empty     
             )
           li.item(
             v-for="category in categories"

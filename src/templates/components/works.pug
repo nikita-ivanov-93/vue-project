@@ -4,7 +4,7 @@ script(type="text/x-template")#works-container
 script(type="text/x-template")#works-current
   .works-preview
     .works-preview__pics(:data-slide="currentIndex+1")
-      img(:src="currentWork.photo").works-preview__fullpic
+      img(:src="`https://webdev-api.loftschool.com/${currentWork.photo}`").works-preview__fullpic
       .works-preview__thumbs
         worksThumbs(:currentWork="currentWork", :works="reverseWorks")
       .works-preview__btns
@@ -15,7 +15,7 @@ script(type="text/x-template")#works-thumbs
   ul.thumbs
     li.thumbs__item(v-for="slide in works" :key="slide.id" :class="{active: slide.id === currentWork.id}")
       a(href="#").thumbs__link
-        img(:src="slide.photo").thumbs__pic
+        img(:src="`https://webdev-api.loftschool.com/${slide.photo}`").thumbs__pic
 
 script(type="text/x-template")#works-btns 
   .square-btns
@@ -27,10 +27,10 @@ script(type="text/x-template")#works-info
     worksTags(:currentWork="currentWork")
     .works-preview__title {{currentWork.title}}
     .works-preview__desc
-      p {{currentWork.desc}}
+      p {{currentWork.description}}
     a(:href="currentWork.link", target="_blank").iconed-link Посмотреть сайт
 
 script(type="text/x-template")#works-tags
   ul.tags
-    li.tags__item(v-for="tag in currentWork.skills.split(', ')") 
+    li.tags__item(v-for="tag in currentWork.techs.split(',')") 
       .tag {{tag}}
