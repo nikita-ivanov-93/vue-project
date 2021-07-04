@@ -41,12 +41,12 @@
 <script>
 import appForm from "../../components/reviewForm";
 import reviewCard from "../../components/reviewCard";
-import button from "../../components/button";
+import iconedButton from "../../components/button";
 import { mapState, mapActions } from "vuex";
 
 export default {
   components: { 
-    iconedButton: button,
+    iconedButton,
     appForm,
     reviewCard
   },

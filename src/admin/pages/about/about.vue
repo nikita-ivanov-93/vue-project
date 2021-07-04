@@ -32,13 +32,13 @@
 </template>
 
 <script>
-import button from "../../components/button";
+import iconedButton from "../../components/button";
 import category from "../../components/category";
 import {mapActions, mapState} from 'vuex';
 
 export default {
   components: {
-    iconedButton: button,
+    iconedButton,
     category,
   },
   data() {

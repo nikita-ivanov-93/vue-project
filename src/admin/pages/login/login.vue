@@ -24,7 +24,7 @@
 
 <script>
 import appInput from "../../components/input";
-import button from '../../components/button';
+import appButton from '../../components/button';
 import { Validator, mixin as ValidatorMixin } from "simple-vue-validator";
 import $axios from '../../request';
 import { mapActions } from "vuex";
@@ -40,7 +40,7 @@ export default {
   },
   components: {
     appInput,
-    appButton: button,
+    appButton
   },
   data: () => ({
     user: {
