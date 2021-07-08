@@ -19,7 +19,7 @@
             :errorMessage="validation.firstError('user.password')"
           )
         .btn
-          app-button(title="Отправить" :disbled="isSubmitDisabled")
+          app-button(title="Отправить" :type="defaultBtn" :disbled="isSubmitDisabled")
 </template>
 
 <script>
