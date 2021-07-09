@@ -28,3 +28,9 @@ $ npm run имя_скрипта
 ```sh
 $ yarn имя_скрипта
 ```
+###### Student info
+```
+Nikita Ivanov Aleksandrovich,
+10.05.2021 - 20.06.2021
+
+```

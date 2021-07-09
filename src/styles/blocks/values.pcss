@@ -1,0 +1,42 @@
+.values {
+    margin-bottom: 310px;
+}
+.values__wrapper {
+    padding-left: 34%;
+}
+.values__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding: 142px 160px;
+    &:before {
+        content: "";
+        position: absolute;
+        background: url('~images/bg/bag.png') left bottom / contain no-repeat;
+        display: block;
+        bottom: 15%;
+        height: 82%;
+        width: 40%;
+        left: 1%;
+    }
+}
+.values__skills {
+    padding-left: 122px;
+}
+.values__title {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 182px;
+    margin-bottom: 84px;
+    padding-right: 39%;
+    .values__title-text {
+        font-weight: 700;
+        font-size: 30px;
+    }
+    .values__desc {
+        font-weight: 600;
+        line-height: 1.7;
+    }
+}
